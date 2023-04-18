@@ -7,8 +7,9 @@ To help you add [Vue REPL](https://github.com/vuejs/repl) in your [SiYuan](https
 
 ## Features
 
-* Preserve the full power of [Vue REPL](https://github.com/vuejs/repl). 
+* Preserve the full power of [Vue REPL](https://github.com/vuejs/repl)
 * Auto save your code
+* Size change along with bazaar block size
 
 ## Screenshots
 
