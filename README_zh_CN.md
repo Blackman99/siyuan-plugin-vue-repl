@@ -5,7 +5,7 @@
 ## 特性
 * 保留[Vue REPL](https://github.com/vuejs/repl) 的完整能力
 * 自动保存 REPL 中的代码
-* 自动跟踪插件块大小
+* 自动跟踪挂件块大小
 
 ## Screenshots
 
