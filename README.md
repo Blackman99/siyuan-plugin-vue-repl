@@ -1,6 +1,6 @@
 ## Introduction
 
-Add [Vue REPL](https://github.com/vuejs/repl) in your [SiYuan](https://github.com/siyuan-note/siyuan) APP.
+To help you add [Vue REPL](https://github.com/vuejs/repl) in your [SiYuan](https://github.com/siyuan-note/siyuan) APP.
 
 ## Screenshots
 
