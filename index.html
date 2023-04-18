@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <script async src="https://unpkg.com/es-module-shims@1.5.5/dist/es-module-shims.wasm.js"></script>
+  <script type="importmap">
+    {
+      "imports": {
+        "vue": "https://unpkg.com/vue@3.2.37/dist/vue.esm-browser.prod.js",
+        "@vue/repl": "https://unpkg.com/@vue/repl@1.4.0/dist/vue-repl.js",
+        "vue/compiler-sfc": "https://unpkg.com/@vue/compiler-sfc@3.2.47/dist/compiler-sfc.esm-browser.js"
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://unpkg.com/@vue/repl@1.4.0/dist/style.css">
+  <title>Vue Repl</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+    #previewer {
+      border: none;
+      outline: none;
+      border-left: 1px solid #333;
+    }
+    .loading-tip {
+      color: cyan;
+    }
+    #app {
+      min-height: 400px;
+    }
+    #app .vue-repl {
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h3 class="loading-tip">Loading...</h3>
+  </div>
+
+  <script type="module">
+    import { createApp, watchEffect } from 'vue'
+    import { Repl, ReplStore } from '@vue/repl'
+
+    const query = new URLSearchParams(location.search)
+    const key = frameElement.parentElement.parentElement.dataset.nodeId + '-VUE_REPL'
+
+    const store = new ReplStore({
+      serializedState: localStorage.getItem(key),
+      showOutput: query.has('showOutput'),
+      outputMode: (query.get('outputMode') || 'preview'),
+      defaultVueRuntimeURL: 'https://unpkg.com/vue@3.2.37/dist/vue.esm-browser.prod.js'
+    })
+    const app = createApp(Repl, {
+      store
+    })
+    app.config.unwrapInjectedRef = true
+    app.config.errorHandler = e => console.error(e)
+    app.mount('#app')
+
+    // persist state to localStorage
+    watchEffect(() => {
+      localStorage.setItem(key, store.serialize().slice(1))
+    })
+
+    const resetHeight = () => {
+      const appEl = document.getElementById('app')
+      if (appEl) {
+        appEl.style.height = window.innerHeight + 'px'
+      }
+    }
+
+    window.addEventListener('resize', resetHeight)
+    resetHeight()
+  </script>
+</body>
+</html>
