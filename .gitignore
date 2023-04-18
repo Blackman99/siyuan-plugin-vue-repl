@@ -1,0 +1,15 @@
+.DS_Store
+.cache
+.build-cache*
+.parcel-cache
+
+node_modules
+
+dist
+config.js
+.directory
+.idea
+.vscode
+
+.env
+.env.*
