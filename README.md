@@ -4,3 +4,4 @@ Add [Vue REPL](https://github.com/vuejs/repl) in your [SiYuan](https://github.co
 
 ## Screenshots
 
+![siyuan-vue-repl](https://user-images.githubusercontent.com/41723543/232690588-99ad1b14-6512-4e4f-ba08-8705fd24461f.gif)
