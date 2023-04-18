@@ -14,7 +14,7 @@ To help you add [Vue REPL](https://github.com/vuejs/repl) in your [SiYuan](https
 
 ![siyuan-vue-repl](https://user-images.githubusercontent.com/41723543/232690588-99ad1b14-6512-4e4f-ba08-8705fd24461f.gif)
 
-Have fun with note with [Vue.js](https://vuejs.org/)!
+Have fun with [Vue.js](https://vuejs.org/) in SiYuan!
 
 ## LICENSE
 
