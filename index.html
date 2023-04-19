@@ -7,13 +7,13 @@
   <script type="importmap">
     {
       "imports": {
-        "vue": "https://unpkg.com/vue@3.2.37/dist/vue.esm-browser.prod.js",
-        "@vue/repl": "https://unpkg.com/@vue/repl@1.4.0/dist/vue-repl.js",
-        "vue/compiler-sfc": "https://unpkg.com/@vue/compiler-sfc@3.2.47/dist/compiler-sfc.esm-browser.js"
+        "vue": "https://esm.sh/vue",
+        "@vue/repl": "https://esm.sh/@vue/repl",
+        "vue/compiler-sfc": "https://esm.sh/vue/compiler-sfc"
       }
     }
   </script>
-  <link rel="stylesheet" href="https://esm.sh/@vue/repl@1.4.0/dist/style.css">
+  <link rel="stylesheet" href="https://esm.sh/@vue/repl/dist/style.css">
   <title>Vue Repl</title>
   <style>
     html, body {
@@ -48,13 +48,15 @@
     import { Repl, ReplStore } from '@vue/repl'
 
     const query = new URLSearchParams(location.search)
-    const key = frameElement.parentElement.parentElement.dataset.nodeId + '-VUE_REPL'
+    const siYuanBlockEl = frameElement.parentElement.parentElement
+    const key = siYuanBlockEl.dataset.nodeId + '-VUE_REPL'
+    const serializedNodeAttrState = siYuanBlockEl.dataset.vueRepl
 
     const store = new ReplStore({
-      serializedState: localStorage.getItem(key),
+      serializedState: serializedNodeAttrState || localStorage.getItem(key),
       showOutput: query.has('showOutput'),
       outputMode: (query.get('outputMode') || 'preview'),
-      defaultVueRuntimeURL: 'https://unpkg.com/vue@3.2.37/dist/vue.esm-browser.prod.js'
+      defaultVueRuntimeURL: 'https://esm.sh/vue'
     })
     const app = createApp(Repl, {
       store
@@ -65,7 +67,10 @@
 
     // persist state to localStorage
     watchEffect(() => {
-      localStorage.setItem(key, store.serialize().slice(1))
+      // remove # prefix
+      const serializedStateWithoutHash = store.serialize().slice(1)
+      siYuanBlockEl.dataset.vueRepl = serializedStateWithoutHash
+      localStorage.setItem(key, serializedStateWithoutHash)
     })
 
     const resetHeight = () => {
