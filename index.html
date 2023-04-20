@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,43 +17,58 @@
   <link rel="stylesheet" href="https://esm.sh/@vue/repl/dist/style.css">
   <title>Vue Repl</title>
   <style>
-    html, body {
+    html,
+    body {
       margin: 0;
       padding: 0;
     }
+
     .loading-tip {
       color: #41B883;
       font-size: 18px;
       padding: 12px;
     }
-    #app {
-      min-height: 400px;
-    }
+
     #app .vue-repl {
       height: 100%;
     }
   </style>
 </head>
+
 <body>
   <div id="app">
     <h3 class="loading-tip">Loading...</h3>
   </div>
 
   <script type="module">
-    import { createApp, watchEffect } from 'vue'
+    import { createApp, reactive, watch } from 'vue'
     import { Repl, ReplStore } from '@vue/repl'
 
-    const query = new URLSearchParams(location.search)
-    const siYuanBlockEl = frameElement.parentElement.parentElement
-    const key = siYuanBlockEl.dataset.nodeId + '-VUE_REPL'
-    const serializedNodeAttrState = siYuanBlockEl.dataset.vueRepl
+    const debounce = (fn, timeout = 1000) => {
+      let timer
+      return (...params) => {
+        if (timer) {
+          clearTimeout(timer)
+          timer = null
+        }
+        timer = setTimeout(() => {
+          fn(...params)
+          timer = null
+        }, timeout)
+      }
+    }
 
-    const store = new ReplStore({
-      serializedState: serializedNodeAttrState || localStorage.getItem(key),
-      showOutput: query.has('showOutput'),
-      outputMode: (query.get('outputMode') || 'preview'),
-      defaultVueRuntimeURL: 'https://esm.sh/vue'
-    })
+    const getBlockEl = () => frameElement?.parentElement?.parentElement
+
+    const ATTR_KEY = `custom-vue-repl`
+    const serializedNodeAttrState = getBlockEl()?.getAttribute(ATTR_KEY)
+
+    const store = reactive(new ReplStore({
+      serializedState: serializedNodeAttrState,
+      showOutput: true,
+      outputMode: 'preview',
+      defaultVueRuntimeURL: 'https://esm.sh/v112/@vue/runtime-dom@3.2.47/es2022/runtime-dom.mjs'
+    }))
     const app = createApp(Repl, {
       store
     })
@@ -60,12 +76,30 @@
     app.config.errorHandler = e => console.error(e)
     app.mount('#app')
 
-    // persist state to localStorage
-    watchEffect(() => {
+
+    const syncCode = debounce(() => {
       // remove # prefix
       const serializedStateWithoutHash = store.serialize().slice(1)
-      siYuanBlockEl.dataset.vueRepl = serializedStateWithoutHash
-      localStorage.setItem(key, serializedStateWithoutHash)
+
+      const blockEl = getBlockEl()
+      if (!blockEl) return
+      fetch('/api/attr/setBlockAttrs', {
+        method: 'POST',
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          id: blockEl.dataset.nodeId,
+          attrs: {
+            [ATTR_KEY]: serializedStateWithoutHash
+          }
+        })
+      })
+    })
+
+    // persist state to localStorage
+    watch(store, () => {
+      syncCode()
     })
 
     const resetHeight = () => {
@@ -79,4 +113,5 @@
     resetHeight()
   </script>
 </body>
+
 </html>
