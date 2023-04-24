@@ -15,6 +15,10 @@ SiYuan -> 集市 -> 挂件 -> Vue REPL -> 安装
 
 ![siyuan-vue-repl](https://user-images.githubusercontent.com/41723543/232690588-99ad1b14-6512-4e4f-ba08-8705fd24461f.gif)
 
+## 使用限制
+
+引用了 [esm.sh](https://esm.sh)上的资源，**使用时需联网**
+
 ## 许可证
 
 [MIT](./LICENSE)
