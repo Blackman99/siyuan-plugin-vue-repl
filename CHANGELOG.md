@@ -1,3 +1,16 @@
+
+## 0.4.0
+
+* Localize style.css to have a faster loading speed
+
+## 0.3.1
+
+* Auto set width along with block width when created
+
+## 0.3.0
+
+* Use api to sync code
+
 ## 0.2.0
 
 * Use esm.sh for module and css assets
