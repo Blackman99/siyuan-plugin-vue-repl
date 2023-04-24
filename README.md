@@ -12,6 +12,10 @@ Vue REPL in SiYuan
 
 To help you add [Vue REPL](https://github.com/vuejs/repl) in your [SiYuan](https://github.com/siyuan-note/siyuan) APP.
 
+## How to use
+
+SiYuan -> Bazaar -> Widget -> Vue REPL -> Install
+
 ## Features
 
 * Preserve the full power of [Vue REPL](https://github.com/vuejs/repl)

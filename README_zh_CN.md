@@ -7,7 +7,11 @@
 * 自动保存 REPL 中的代码
 * 自动跟踪挂件块大小
 
-## Screenshots
+## 怎样使用
+
+SiYuan -> 集市 -> 挂件 -> Vue REPL -> 安装
+
+## 效果演示
 
 ![siyuan-vue-repl](https://user-images.githubusercontent.com/41723543/232690588-99ad1b14-6512-4e4f-ba08-8705fd24461f.gif)
 
