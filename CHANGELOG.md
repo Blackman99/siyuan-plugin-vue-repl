@@ -1,3 +1,7 @@
+## Next
+
+* Fix flexible width with block width
+* Support for open in browser
 
 ## 0.4.0
 
