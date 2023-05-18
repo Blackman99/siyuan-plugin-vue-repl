@@ -20,4 +20,4 @@ SiYuan -> 集市 -> 挂件 -> Vue REPL -> 安装
 
 [MIT](./LICENSE)
 
-祝你用 Vue 记笔记记得愉快！
+希望能帮助到使用者愉快用 Vue 记录笔记！
