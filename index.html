@@ -162,8 +162,13 @@
         }
         blockId = blockEl.dataset.nodeId
         // Initial width full with block
-        frameElement.style.width = blockEl.offsetWidth + 'px'
-        
+        const doReplResize = () => {
+          frameElement.style.width = blockEl.offsetWidth + 'px'
+        }
+        doReplResize()
+        const resizeObserver = new ResizeObserver(doReplResize)
+        resizeObserver.observe(blockEl)
+        window.parent.addEventListener('resize', doReplResize)
         openInBrowserButton.addEventListener('click', () => {
           window.open(`${location.href}?blockId=${blockEl.dataset.nodeId}`)
         })
