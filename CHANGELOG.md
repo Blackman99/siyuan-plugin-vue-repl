@@ -1,5 +1,11 @@
 ## Next
 
+## 0.5.1
+
+* Add resize observer for block element
+
+## 0.5.0
+
 * Fix flexible width with block width
 * Support for open in browser
 
