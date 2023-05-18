@@ -8,9 +8,9 @@
   <script type="importmap">
     {
       "imports": {
-        "vue": "https://esm.sh/vue",
-        "@vue/repl": "https://esm.sh/@vue/repl",
-        "vue/compiler-sfc": "https://esm.sh/vue/compiler-sfc"
+        "vue": "https://unpkg.com/vue@3.2.45/dist/vue.esm-browser.js",
+        "@vue/repl": "https://unpkg.com/@vue/repl@1.4.1/dist/vue-repl.js",
+        "vue/compiler-sfc": "https://unpkg.com/@vue/compiler-sfc@3.2.45/dist/compiler-sfc.esm-browser.js"
       }
     }
   </script>
@@ -101,7 +101,7 @@
         serializedState: initialState,
         showOutput: true,
         outputMode: 'preview',
-        defaultVueRuntimeURL: 'https://esm.sh/v112/@vue/runtime-dom@3.2.47/es2022/runtime-dom.mjs'
+        defaultVueRuntimeURL: 'https://unpkg.com/vue@3.2.45/dist/vue.runtime.esm-browser.js'
       }))
       const syncCode = debounce(() => {
         // remove # prefix
