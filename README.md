@@ -28,10 +28,6 @@ SiYuan -> Bazaar -> Widget -> Vue REPL -> Install
 
 Have fun with [Vue.js](https://vuejs.org/) in [SiYuan](https://github.com/siyuan-note/siyuan)!
 
-## Usage Restriction
-
-Reference modules on [esm.sh](https://esm.sh)，**Network is required**
-
 ## LICENSE
 
 [MIT](./LICENSE)
