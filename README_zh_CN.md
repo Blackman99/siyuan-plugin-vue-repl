@@ -16,6 +16,12 @@ SiYuan -> 集市 -> 挂件 -> Vue REPL -> 安装
 
 ![siyuan-vue-repl](https://user-images.githubusercontent.com/41723543/232690588-99ad1b14-6512-4e4f-ba08-8705fd24461f.gif)
 
+## 参与贡献
+
+* 加入 [Discord 讨论区](https://discord.gg/yTUERXWH3p)
+* 提交 issues
+* 欢迎 PR
+
 ## 许可证
 
 [MIT](./LICENSE)

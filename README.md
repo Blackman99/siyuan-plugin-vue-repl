@@ -29,6 +29,12 @@ SiYuan -> Bazaar -> Widget -> Vue REPL -> Install
 
 Have fun with [Vue.js](https://vuejs.org/) in [SiYuan](https://github.com/siyuan-note/siyuan)!
 
+## Contributing
+
+* Join [Discord channel](https://discord.gg/yTUERXWH3p)
+* Submit any issues
+* PR welcome
+
 ## LICENSE
 
 [MIT](./LICENSE)
