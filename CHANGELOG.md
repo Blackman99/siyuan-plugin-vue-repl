@@ -1,4 +1,6 @@
-## Next
+## 0.6.0
+
+* Fix vue, @vue/repl, vue runtime version
 
 ## 0.5.1
 
