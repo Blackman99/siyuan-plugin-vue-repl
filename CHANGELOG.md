@@ -1,3 +1,7 @@
+## 0.7.0
+
+* Update widget.json
+
 ## 0.6.0
 
 * Fix vue, @vue/repl, vue runtime version

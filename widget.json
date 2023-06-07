@@ -2,5 +2,18 @@
     "name": "Vue REPL",
     "author": "Dongsheng Zhao",
     "url": "https://github.com/Blackman99/siyuan-plugin-vue-repl",
-    "version": "0.6.0"
+    "version": "0.7.0",
+    "minAppVersion": "2.8.8",
+    "displayName": {
+        "default": "Vue REPL",
+        "zh_CN": "Vue 交互式编辑器"
+    },
+    "description": {
+        "default": "Make it possible to write Vue.js demos in SiYuan",
+        "zh_CN": "让在思源中编写 Vue 示例成为可能"
+    },
+    "readme": {
+        "default": "README.md",
+        "zh_CN": "README_zh_CN.md"
+    }
 }
