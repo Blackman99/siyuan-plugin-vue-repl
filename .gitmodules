@@ -1,0 +1,3 @@
+[submodule "vue-repl"]
+	path = vue-repl
+	url = https://github.com/Blackman99/vue-repl.git
