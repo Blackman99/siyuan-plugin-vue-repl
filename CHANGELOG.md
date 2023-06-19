@@ -1,3 +1,7 @@
+## 0.8.0
+
+* Add file rename
+
 ## 0.7.0
 
 * Update widget.json
