@@ -1,3 +1,7 @@
+## 0.9.9
+
+* Error message toggle
+
 ## 0.8.0
 
 * Add file rename

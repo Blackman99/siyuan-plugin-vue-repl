@@ -2,7 +2,7 @@
     "name": "Vue REPL",
     "author": "Dongsheng Zhao",
     "url": "https://github.com/Blackman99/siyuan-plugin-vue-repl",
-    "version": "0.8.0",
+    "version": "0.9.0",
     "minAppVersion": "2.8.8",
     "displayName": {
         "default": "Vue REPL",
