@@ -10,7 +10,8 @@
       "imports": {
         "vue": "./js/vue.js",
         "@vue/repl": "./js/vue-repl.js",
-        "vue/compiler-sfc": "./js/vue-compiler-sfc.js"
+        "vue/compiler-sfc": "./js/vue-compiler-sfc.js",
+        "monaco-editor": "./js/monaco-editor.js"
       }
     }
   </script>
@@ -67,6 +68,7 @@
   <script type="module">
     import { createApp, reactive, watch, watchEffect } from 'vue'
     import { Repl, ReplStore } from '@vue/repl'
+    import MonacoEditor from 'monaco-editor'
 
     // Mark is current page opened directly from browser
     const IS_DIRECT_FROM_BROWSER = window.parent === window
@@ -127,7 +129,8 @@
 
       const app = createApp(Repl, {
         store,
-        clearConsole: false
+        clearConsole: false,
+        editor: MonacoEditor
       })
       app.config.unwrapInjectedRef = true
       app.config.errorHandler = e => console.error(e)
